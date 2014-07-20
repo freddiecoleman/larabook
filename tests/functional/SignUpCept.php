@@ -5,4 +5,4 @@ $I->wantTo('sign up for a Larabook account');
 
 $I->amOnPage('/');
 $I->click('Sign Up');
-$I->seeCurrentUrlEquals('/signup');
+$I->seeCurrentUrlEquals('/register');
