@@ -4,6 +4,17 @@
 @section('content')
   <h1>Register!</h1>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <h3>Uh oh!</h3>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+
   {{ Form::open(['route' => 'register_path']) }}
 
     <div class="form-group">

@@ -23,6 +23,8 @@ class RegistrationController extends \BaseController {
 
   public function store()
   {
+      $this->registrationForm->validate(Input::all());
+
       $user = User::create(
           Input::only('username', 'email', 'password')
       );
