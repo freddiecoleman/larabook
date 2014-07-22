@@ -1,8 +1,17 @@
 <?php
 
+use Larabook\Forms\RegistrationForm;
+
 class RegistrationController extends \BaseController {
 
-	/**
+    private $registrationForm;
+
+    function __construct(RegistrationForm $registrationForm)
+    {
+        $this->registrationForm = $registrationForm;
+    }
+
+    /**
 	 * Show a form to register the user.
 	 *
 	 * @return Response
