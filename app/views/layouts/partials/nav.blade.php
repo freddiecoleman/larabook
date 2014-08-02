@@ -30,6 +30,7 @@
               </ul>
             </li>
         @else
+            <li>{{ link_to_route('register_path', 'Register') }}</li>
             <li><a href="/login">Log In</a></li>
         @endif
       </ul>
