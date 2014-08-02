@@ -27,4 +27,14 @@ class Status extends \Eloquent {
         return $status;
     }
 
+    /**
+     * A status belongs to a user
+     *
+     * @return mixed
+     */
+    public function user()
+    {
+        return $this->belongsTo('Larabook\Users\User');
+    }
+
 }

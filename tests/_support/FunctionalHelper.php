@@ -31,7 +31,7 @@ class FunctionalHelper extends \Codeception\Module {
     {
         $I = $this->getModule('Laravel4');
 
-        $I->fillField('status', $body);
+        $I->fillField('Status:', $body);
         $I->click('Post Status');
         //return $this->have('Larabook\Statuses\Status', $overrides);
     }

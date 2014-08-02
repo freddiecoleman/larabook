@@ -18,4 +18,9 @@ class StatusRepository {
             ->save($status);
     }
 
+    public function getAllForUser(User $user)
+    {
+        return $user->statuses;
+    }
+
 } 

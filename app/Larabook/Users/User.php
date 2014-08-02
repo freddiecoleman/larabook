@@ -53,4 +53,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $user;
     }
 
+    /**
+     * A user has many statuses
+     *
+     * @return mixed
+     */
+    public function statuses()
+    {
+        return $this->hasMany('Larabook\Statuses\Status');
+    }
+
 }
