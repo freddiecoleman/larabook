@@ -1,8 +1,21 @@
 <?php
 
+use Larabook\Forms\SignInForm;
+
 class SessionsController extends \BaseController {
 
-	/**
+    /**
+     * @var SignInForm
+     */
+    private $signInForm;
+
+    function __construct(SignInForm $signInForm)
+    {
+        $this->signInForm = $signInForm;
+        $this->beforeFilter('guest');
+    }
+
+    /**
 	 * Show the form for signing in.
 	 *
 	 * @return Response
@@ -20,56 +33,15 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$formData = Input::only('email', 'password');
+        $this->signInForm->validate($formData);
+
+        if(Auth::attempt($formData))
+        {
+            Flash::message('Welcome back!');
+            return Redirect::intended('/statuses');
+        }
+
 	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }

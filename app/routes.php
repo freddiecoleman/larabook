@@ -41,3 +41,8 @@ Route::post('login', [
     'as'   => 'login_path',
     'uses' => 'SessionsController@store'
 ]);
+
+/**
+ * Statuses
+ */
+Route::get('statuses', 'StatusController@index');

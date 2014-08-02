@@ -1,7 +1,4 @@
-<?php
-
-
-namespace Larabook\Forms;
+<?php namespace Larabook\Forms;
 
 use Laracasts\Validation\FormValidator;
 
