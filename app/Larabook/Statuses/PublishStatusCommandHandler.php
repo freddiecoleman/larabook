@@ -20,6 +20,6 @@ class PublishStatusCommandHandler implements CommandHandler {
     public function handle($command)
     {
         $status = Status::publish($command->body);
-        $this->statusRepository->save($status);
+        $this->statusRepository->save($status, $command->userId);
     }
 }

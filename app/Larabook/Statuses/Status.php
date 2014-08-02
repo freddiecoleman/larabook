@@ -1,5 +1,6 @@
 <?php namespace Larabook\Statuses;
 
+use Larabook\Statuses\Events\StatusWasPublished;
 use Laracasts\Commander\Events\EventGenerator;
 
 class Status extends \Eloquent {
@@ -21,7 +22,7 @@ class Status extends \Eloquent {
     {
         $status = new static(compact('body'));
 
-        $status->raise(new StatusWasPublished);
+        $status->raise(new StatusWasPublished($body));
 
         return $status;
     }
