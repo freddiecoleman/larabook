@@ -34,8 +34,7 @@ class StatusController extends BaseController {
 	 */
 	public function store()
 	{
-		$command = new PublishStatusCommand(Input::get('body'), Auth::user()->id);
-        $this->execute($command);
+        $this->execute(new PublishStatusCommand(Input::get('body'), Auth::user()->id));
 
         Flash::message('Your status has been updated!');
 
