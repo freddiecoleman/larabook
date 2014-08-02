@@ -46,3 +46,8 @@ Route::post('login', [
  * Statuses
  */
 Route::get('statuses', 'StatusController@index');
+
+Route::get('logout', [
+    'as'   => 'logout_path',
+    'uses' => 'SessionsController@destroy'
+]);
