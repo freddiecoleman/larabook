@@ -3,7 +3,7 @@
 @section('content')
     <h1>Sign In!</h1>
 
-    {{ Form::open() }}
+    {{ Form::open(['route' => 'login_path']) }}
         <div class="form-group">
             {{ Form::label('email', 'Email:') }}
             {{ Form::email('email', null, ['class' => 'form-control', 'required' => 'required']) }}
