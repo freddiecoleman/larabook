@@ -1,11 +1,29 @@
 <?php namespace Larabook\Statuses;
 
+use Laracasts\Commander\Events\EventGenerator;
+
 class Status extends \Eloquent {
+
+    use EventGenerator;
 
     /**
      * Fillable fields for a new status.
      * @var array
      */
     protected $fillable = ['body'];
+
+    /**
+     * Publish a new status
+     * @param $body
+     * @return static
+     */
+    public static function publish($body)
+    {
+        $status = new static(compact('body'));
+
+        $status->raise(new StatusWasPublished);
+
+        return $status;
+    }
 
 }
