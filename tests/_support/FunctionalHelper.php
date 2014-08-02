@@ -27,9 +27,13 @@ class FunctionalHelper extends \Codeception\Module {
         return $this->have('Larabook\Users\User', $overrides);
     }
 
-    public function postAStatus($overrides = [])
+    public function postAStatus($body)
     {
-        return $this->have('Larabook\Statuses\Status', $overrides);
+        $I = $this->getModule('Laravel4');
+
+        $I->fillField('status', $body);
+        $I->click('Post Status');
+        //return $this->have('Larabook\Statuses\Status', $overrides);
     }
 
     public function have($model, $overrides = [])
