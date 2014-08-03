@@ -6,15 +6,16 @@
 
             @include('layouts.partials.errors')
 
-            {{ Form::open() }}
-                <div class="form-group">
-                    {{ Form::label('body', 'Status:') }}
-                    {{ Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'What\'s on your mind?']) }}
-                </div>
-                <div class="form-group">
-                    {{ Form::submit('Post Status', ['class' => 'btn btn-primary']) }}
-                </div>
-            {{ Form::close() }}
+            <div class="status-post">
+                {{ Form::open() }}
+                    <div class="form-group">
+                        {{ Form::textarea('body', null, ['class' => 'form-control', 'rows' => '3', 'placeholder' => 'What\'s on your mind?']) }}
+                    </div>
+                    <div class="form-group status-post-submit">
+                        {{ Form::submit('Post Status', ['class' => 'btn btn-default btn-xs']) }}
+                    </div>
+                {{ Form::close() }}
+            </div>
 
             @foreach($statuses as $status)
                 <article class="media status-media">
