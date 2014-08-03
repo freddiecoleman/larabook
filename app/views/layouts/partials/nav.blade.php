@@ -18,7 +18,12 @@
       <ul class="nav navbar-nav navbar-right">
         @if ($currentUser)
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $currentUser->username }} <span class="caret"></span></a>
+
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="//www.gravatar.com/avatar/{{ md5($currentUser->email) }}?s=30" alt="{{ $currentUser->username }}" class="nav-gravatar">
+                {{ $currentUser->username }} <span class="caret"></span>
+              </a>
+
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
@@ -26,7 +31,7 @@
                 <li class="divider"></li>
                 <li><a href="#">Separated link</a></li>
                 <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li>{{ link_to_route('logout_path', 'Logout') }}</li>
               </ul>
             </li>
         @else
