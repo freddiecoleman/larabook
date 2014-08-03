@@ -20,7 +20,7 @@
             <li class="dropdown">
 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="//www.gravatar.com/avatar/{{ md5($currentUser->email) }}?s=30" alt="{{ $currentUser->username }}" class="nav-gravatar">
+                <img src="{{ $currentUser->present()->gravatar }}" alt="{{ $currentUser->username }}" class="nav-gravatar">
                 {{ $currentUser->username }} <span class="caret"></span>
               </a>
 
