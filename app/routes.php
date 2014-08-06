@@ -59,3 +59,11 @@ Route::post('statuses', [
     'as'   => 'statuses_path',
     'uses' => 'StatusController@store'
 ]);
+
+/**
+ * Users
+ */
+Route::get('users', [
+    'as' => 'users_path',
+    'uses' => 'UsersController@index'
+]);
