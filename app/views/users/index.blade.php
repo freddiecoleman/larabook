@@ -1,15 +1,15 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h1>All Users</h1>
-            @foreach($users as $user)
-                <div class="col-md-3">
-                    @include('layouts.partials.avatar')
-                    {{ $user->username }}
-                </div>
+    <h1>All Users</h1>
+    @foreach($users->chunk(4) as $userSet)
+        <div class="row users">
+            @foreach ($userSet as $user)
+            <div class="col-md-3 user-block">
+                @include('layouts.partials.avatar', ['size' => 70])
+                <h4 class="user-block-username">{{ $user->username }}</h4>
+            </div>
             @endforeach
         </div>
-    </div>
+    @endforeach
 @stop
