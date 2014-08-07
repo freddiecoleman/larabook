@@ -7,7 +7,9 @@
             @include('layouts.partials.avatar', ['size' => 100])
         </div>
         <div class="col-md-6">
-            @include('statuses.partials.publish-status-form')
+            @if ($user->is($currentUser)
+                @include('statuses.partials.publish-status-form')
+            @endif
 
             @foreach($user->statuses as $status)
                 @include('statuses.partials.status')
