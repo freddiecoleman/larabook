@@ -11,9 +11,7 @@
                 @include('statuses.partials.publish-status-form')
             @endif
 
-            @foreach($user->statuses as $status)
-                @include('statuses.partials.status')
-            @endforeach
+            @include('statuses.partials.statuses', ['statuses' => $user->statuses])
         </div>
     </div>
 @stop

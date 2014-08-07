@@ -6,9 +6,7 @@
 
             @include('statuses.partials.publish-status-form')
 
-            @foreach($statuses as $status)
-                @include('statuses.partials.status')
-            @endforeach
+            @include('statuses.partials.statuses')
         </div>
     </div>
 @stop
