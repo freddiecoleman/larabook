@@ -23,4 +23,9 @@ class UserRepository {
         return User::orderBy('username', 'asc')->simplePaginate($howMany);
     }
 
+    public function findByUsername($username)
+    {
+        return User::whereUsername($username)->first();
+    }
+
 } 
