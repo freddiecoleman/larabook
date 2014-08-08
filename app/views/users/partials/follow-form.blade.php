@@ -1,5 +1,5 @@
 @if ($user->isFollowedBy($currentUser))
-    <p>You are following this user.</p>
+    <p>You are following {{ $user->username }}.</p>
 @else
     {{ Form::open(['route' => 'follows_path']) }}
         {{ Form::hidden('userIdToFollow', $user->id) }}
