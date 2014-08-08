@@ -1,10 +1,11 @@
 <?php 
 $I = new FunctionalTester($scenario);
 
-$I->am('a Larabook member');
+$I->am('a Larabook user');
 $I->wantTo('follow other Larabook users');
 
-$I->haveAnAccount('Larabook\Users\User', ['username' => 'OtherUser']);
+$I->haveAnAccount(['username' => 'OtherUser']);
+$I->signIn();
 
 $I->click('Browse Users');
 $I->click('OtherUser');
