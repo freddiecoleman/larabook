@@ -41,8 +41,7 @@ class StatusesController extends BaseController {
 	 */
 	public function store()
 	{
-        $input = Input::all();
-        $input['userId'] = Auth::id();
+        $input = array_add(Input::get(), 'userId', Auth::id());
         $this->publishStatusForm->validate($input);
 
         $this->execute(PublishStatusCommand::class, $input);
