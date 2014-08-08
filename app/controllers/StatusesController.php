@@ -3,11 +3,8 @@
 use Larabook\Forms\PublishStatusForm;
 use Larabook\Statuses\PublishStatusCommand;
 use Larabook\Statuses\StatusRepository;
-use Laracasts\Commander\CommanderTrait;
 
 class StatusesController extends BaseController {
-
-    use CommanderTrait;
 
     protected $statusRepository;
     /**
