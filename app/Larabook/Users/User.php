@@ -88,6 +88,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
             ->withTimestamps();
     }
 
+    /**
+     * Determine if current user follows another user
+     * @param User $otherUser
+     * @return bool
+     */
     public function isFollowedBy(User $otherUser)
     {
         $idsWhoOtherUserFollows = $otherUser->follows()->lists('followed_id');
