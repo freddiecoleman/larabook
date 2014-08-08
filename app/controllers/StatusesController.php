@@ -46,7 +46,7 @@ class StatusesController extends BaseController {
 	{
         $input = Input::all();
         $input['userId'] = Auth::id();
-        $this->publishStatusForm->validate(Input::only('body'));
+        $this->publishStatusForm->validate($input);
 
         $this->execute(PublishStatusCommand::class, $input);
 
