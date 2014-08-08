@@ -42,7 +42,7 @@ class UserRepository {
      */
     public function findById($id)
     {
-        User::findOrFail($id);
+        return User::findOrFail($id);
     }
 
     /**

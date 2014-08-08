@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Redirect;
 use Larabook\Users\FollowUserCommand;
 
 class FollowsController extends \BaseController {
