@@ -11,17 +11,17 @@
                 <div class="media-body">
                     <h1 class="media-heading">{{ $user->username }}</h1>
                     <p class="text-muted">{{ $status_count = $user->statuses->count() }} {{ str_plural('Status', $status_count) }}</p>
-                    @unless ($user->is($currentUser))
-                        @include('users.partials.follow-form')
-                    @endif
+                    @foreach ($user->followers as $follower)
+                        @include('users.partials.avatar', ['size' => 25, 'user' => $follower])
+                    @endforeach
                 </div>
             </div>
-
-            @foreach ($user->followers as $follower)
-                @include('users.partials.avatar', ['size' => 25, 'user' => $follower])
-            @endforeach
         </div>
         <div class="col-md-6">
+            @unless ($user->is($currentUser))
+                @include('users.partials.follow-form')
+            @endif
+
             @if ($user->is($currentUser))
                 @include('statuses.partials.publish-status-form')
             @endif
