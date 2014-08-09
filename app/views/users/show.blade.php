@@ -16,6 +16,10 @@
                     @endif
                 </div>
             </div>
+
+            @foreach ($user->followers as $follower)
+                @include('users.partials.avatar', ['size' => 25, 'user' => $follower])
+            @endforeach
         </div>
         <div class="col-md-6">
             @if ($user->is($currentUser))
