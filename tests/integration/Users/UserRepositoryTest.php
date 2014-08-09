@@ -54,8 +54,24 @@ class UserRepositoryTest extends \Codeception\TestCase\Test
             'follower_id' => $users[0]->id,
             'followed_id' => $users[1]->id
         ]);
+    }
 
+    /** @test */
+    public function it_unfollows_another_user()
+    {
+        // given i have two users
+        $users = TestDummy::times(2)->create('Larabook\Users\User');
 
+        // and one user follows another user
+        $this->repo->follow($users[1]->id, $users[0]);
 
+        // when I unfollow that same user
+        $this->repo->unfollow($users[1]->id, $users[0]);
+
+        // then I should NOT see $user[1] in the list of those that $users[0] follows
+        $this->tester->dontSeeRecord('follows', [
+            'follower_id' => $users[0]->id,
+            'followed_id' => $users[1]->id
+        ]);
     }
 }
