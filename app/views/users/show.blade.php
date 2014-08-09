@@ -5,7 +5,10 @@
         <div class="col-md-3">
             <h1>{{ $user->username }}</h1>
             @include('users.partials.avatar', ['size' => 100])
-            @include('users.partials.follow-form')
+
+            @unless ($user->is($currentUser))
+                @include('users.partials.follow-form')
+            @endif
         </div>
         <div class="col-md-6">
             @if ($user->is($currentUser))
