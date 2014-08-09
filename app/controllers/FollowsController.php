@@ -19,15 +19,21 @@ class FollowsController extends \BaseController {
         return Redirect::back();
 	}
 
-	/**
-	 * Unfollow a user
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
+    /**
+     * Unfollow a user
+     *
+     * @param $userIdToUnfollow
+     * @internal param $idOfUserToUnfollow
+     * @internal param int $id
+     * @return Response
+     */
+	public function destroy($userIdToUnfollow)
 	{
-		//
+        $this->execute(UnfollowUserCommand:class);
+
+        Flash::success('You have now unfollowed this user.');
+
+        return Redirect::back();
 	}
 
 
