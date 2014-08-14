@@ -30,10 +30,7 @@ class UserRepository {
      */
     public function findByUsername($username)
     {
-        return User::with(['statuses' => function($query)
-        {
-            $query->latest();
-        }])->whereUsername($username)->first();
+        return User::with('statuses')->whereUsername($username)->first();
     }
 
     /**
