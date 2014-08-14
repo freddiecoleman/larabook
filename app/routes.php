@@ -1,10 +1,5 @@
 <?php
 
-Event::listen('Larabook.Registration.Events.UserRegistered', function()
-{
-    dd('Email the new user a welcome message.');
-});
-
 /*
 Registration
 */
