@@ -12,7 +12,7 @@ class StatusesTableSeeder extends Seeder {
 
         $userIds = User::lists('id');
 
-		foreach(range(1, 50) as $index)
+		foreach(range(1, 1000) as $index)
 		{
 			Status::create([
                 'user_id' => $faker->randomElement($userIds),
