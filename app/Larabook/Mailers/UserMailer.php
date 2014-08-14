@@ -1,5 +1,6 @@
 <?php namespace Larabook\Mailers;
 
+use Larabook\Users\User;
 
 class UserMailer extends Mailer {
 
